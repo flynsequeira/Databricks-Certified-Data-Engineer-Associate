@@ -36,16 +36,35 @@ print("Hello World!")
 # MAGIC |    1    |    Adam   |
 # MAGIC |    2    |    Sarah  |
 # MAGIC |    3    |    John   |
+# MAGIC |4        | Something |
+# MAGIC |5| NOTHING |
+# MAGIC |6.          | EVERYTHING |
 # MAGIC
 # MAGIC Links (or Embedded HTML): <a href="https://docs.databricks.com/notebooks/notebooks-manage.html" target="_blank"> Managing Notebooks documentation</a>
 
 # COMMAND ----------
 
-# MAGIC %run ../Includes/Setup
+
+## Run a notebook directly - call a notebook and get it to run.
+%run ../Includes/Setup
 
 # COMMAND ----------
 
 print(full_name)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ### File system command using 
+# MAGIC `%fs ls ... `
+# MAGIC ### DBUTILS
+# MAGIC `dbutils.help()`
+# MAGIC   - `dbutils.fs.ls('/databricks-datasets')`
+# MAGIC   - dbutils is more useful since you can use it as path of python code to do some logic with the file
+# MAGIC   - `files = dbutils.fs.ls('/databricks-datasets')`
+# MAGIC   - `display(files)`
+# MAGIC ### DBC Architve - Databricks Cloud 
+# MAGIC
 
 # COMMAND ----------
 

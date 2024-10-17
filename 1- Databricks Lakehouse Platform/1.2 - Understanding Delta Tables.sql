@@ -1,6 +1,30 @@
 -- Databricks notebook source
 -- MAGIC %md
 -- MAGIC ## Creating Delta Lake Tables
+-- MAGIC - Open source storage framwork that bring reliability in data lake
+-- MAGIC - Data Lake - storage Framework/layer, not format/medium. Enables Building Lakehouse, but not warehouse or db service
+-- MAGIC ### Delta Lake
+-- MAGIC - Cluster : DELTA LAKE -> Storage: Data + Transaction Log
+-- MAGIC ### Trnansaction log
+-- MAGIC - Ordered records of every transaction performed on table
+-- MAGIC - Single so¨®ce of truth
+-- MAGIC - JSON file contians commit info: 
+-- MAGIC   - Operation Performed + Predicates used
+-- MAGIC   - Data files affected (added/removed)
+-- MAGIC ### Eg. of Transactio log - Writes/REads
+-- MAGIC - writes -> logs write -> logs read -> reads data
+-- MAGIC - update data -> add transaction log [delete file_1.parquet, and adds file_3.parquet] -> read transaction log -> read data from file 2 and 3
+-- MAGIC - WRITE + READ Parallel again
+-- MAGIC   - parallel writer process: 1. write data -> 4. add transaction log [adds file_4.parquet] -> 
+-- MAGIC   - parallel preader process: 2. read transaction log -> 3. read data from file 2 and 3 |  read will never have dead lock state or conflice
+-- MAGIC - WRITE + FaILure of write
+-- MAGIC   - writeer writes file5 -> reader reads 2,3,4 and doesn't read 5 because it has dirty data.
+-- MAGIC ### Delta lake advantages
+-- MAGIC - Brings ACID
+-- MAGIC - Handles Scalable Metadata
+-- MAGIC - Full audit trail of all changes
+-- MAGIC - Builds upon standard data formats: parquet + json
+-- MAGIC
 
 -- COMMAND ----------
 

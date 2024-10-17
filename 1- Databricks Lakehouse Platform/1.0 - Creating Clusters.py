@@ -13,7 +13,7 @@
 # MAGIC | Setting | Instructions |
 # MAGIC |--|--|
 # MAGIC |Cluster name|**Demo Cluster**|
-# MAGIC |Cluster mode|**Signle node**|
+# MAGIC |Cluster mode|**Single node**|
 # MAGIC |Runtime version|Select the Databricks runtime version 13.3 LTS|
 # MAGIC |Photon Acceleration| Uncheck the option |
 # MAGIC |Node type|4 cores|
